@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2E8B57;
+        }
+
+        .container {
+            width: 300px;
+            padding: 20px;
+            border: 5px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px black;
+            background-color: #ADD8E6; 
+        }
+
+        .content-border h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #004d00; 
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FF4500; 
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+    </style>
+    <script>
+        function login() {
+            const corUsername = "eld";
+            const corPassword = "456";
+
+            const typeUsername = document.getElementById("username").value;
+            const typePassword = document.getElementById("password").value;
+
+            const usernameError = document.getElementById("usernameError");
+            const passwordError = document.getElementById("passwordError");
+
+            usernameError.innerText = "";
+            passwordError.innerText = "";
+
+            if (typeUsername !== corUsername) {
+                usernameError.innerText = "Incorrect Username";
+            }
+
+            if (typePassword !== corPassword) {
+                passwordError.innerText = "Incorrect Password";
+            }
+
+            if (typeUsername === corUsername && typePassword === corPassword) {
+                alert("Login successful!");
+                window.location.href = "calculator.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content-border">
+            <h1>LOGIN</h1>
+            <div>
+                <label for="username">Enter Username</label>
+                <input type="text" name="username" id="username">
+                <div id="usernameError" class="error"></div>
+            </div>
+            <div>   
+                <label for="password">Enter Password</label>
+                <input type="password" name="password" id="password">
+                <div id="passwordError" class="error"></div>
+            </div>
+            <div class="btn">
+                <button onclick="login()">Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
